@@ -1,0 +1,17 @@
+//Real-Time Cleanliness & Toilet Status Tracker
+Problem: Passengers don’t know which toilet is usable/clean.
+an app is made where passenger can enter train number and can see whether the toilet 
+present in the train is occupied or not. There will be cleaning button infront of the
+door of the washroom and a sensor will be attached to it which will detect whether 
+the toilet is vacant or occupied. If the door is locked from inside then it will show 
+occupied and if it is opened then it will show vacant. If the passenger want to enter 
+the washroom and find it dirty then he can press the cleaning button and the cleaning
+will be done through sensor, motor and valve. passenger can't press it when the door 
+is locked and also when the cleaning is in progress. You cant press the button within 
+30seconds of the previous press. 
+
+How will people get access in train without internet?
+Flow:
+QR code pasted near seat / door
+Scan → opens local web page
+Shows live status

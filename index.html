@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrainFresh – Toilet Status</title>
+    <meta name="description"
+        content="Check real-time toilet availability in your train coach. Occupied or Vacant – know before you go." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ============================================================
+     SCREEN 1 — Train Number Entry
+============================================================ -->
+    <div class="screen" id="screenEntry">
+
+        <div class="entry-wrap">
+
+            <!-- Brand -->
+            <div class="brand-block">
+                <div class="brand-logo">🚆</div>
+                <h1 class="brand-name">TrainFresh</h1>
+                <p class="brand-tagline">Know before you go</p>
+            </div>
+
+            <!-- Card -->
+            <div class="entry-card">
+                <h2 class="entry-heading">Find Your Train</h2>
+                <p class="entry-sub">Enter your train number to see real-time toilet availability across all coaches.
+                </p>
+
+                <div class="input-group">
+                    <label for="trainInput">Train Number</label>
+                    <input id="trainInput" type="text" inputmode="numeric" placeholder="e.g. 12345" maxlength="5"
+                        autocomplete="off" spellcheck="false" />
+                    <div class="input-hint" id="inputHint"></div>
+                </div>
+
+                <button class="btn-primary" id="btnSearch">
+                    <span>Check Toilets</span>
+                    <span class="btn-arrow">→</span>
+                </button>
+
+                <!-- Quick presets -->
+                <div class="preset-label">Popular trains</div>
+                <div class="preset-row">
+                    <button class="preset-chip" data-train="12301">12301 · Howrah Rajdhani</button>
+                    <button class="preset-chip" data-train="12951">12951 · Mumbai Rajdhani</button>
+                    <button class="preset-chip" data-train="12628">12628 · Karnataka Express</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================================
+     SCREEN 2 — Toilet Status
+============================================================ -->
+    <div class="screen hidden" id="screenStatus">
+
+        <!-- Top bar -->
+        <header class="status-header">
+            <button class="btn-back" id="btnBack">← Back</button>
+            <div class="header-center">
+                <div class="train-name" id="headerTrainName">--</div>
+                <div class="header-live">
+                    <span class="pulse-dot"></span>
+                    Live · updates every 30s
+                </div>
+            </div>
+            <div class="header-time" id="headerTime">--:--</div>
+        </header>
+
+        <!-- Summary bar -->
+        <div class="summary-bar">
+            <div class="summary-pill vacant">
+                <span class="summary-num" id="summaryVacant">0</span>
+                <span>Vacant</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-pill occupied">
+                <span class="summary-num" id="summaryOccupied">0</span>
+                <span>Occupied</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-refresh">
+                <span>Refresh in <b id="countdown">30</b>s</span>
+            </div>
+        </div>
+
+        <!-- Coach list -->
+        <div class="coaches-scroll" id="coachesScroll">
+            <!-- Injected by JS -->
+        </div>
+
+        <!-- Report button (floating) -->
+        <button class="fab-report" id="fabReport" title="Alert cleaning staff">
+            🔔 Alert Staff
+        </button>
+
+    </div>
+
+    <!-- ============================================================
+     ALERT TOAST
+============================================================ -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
